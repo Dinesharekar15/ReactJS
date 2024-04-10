@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
 
     }
     SetPassworld(pass);
-
+  
 
   }, [lenght, AllowChar, AllowNum, SetPassworld]);
 
@@ -40,7 +39,7 @@ function App() {
     inputRef.current.select();
 
     window.navigator.clipboard.writeText(Passworld)
-  }, [Passworld])
+  }, [ Passworld])
 
 
   return (
