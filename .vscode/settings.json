@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.altClickMovesCursor": true,
+    "editor.cursorSmoothCaretAnimation": "on"
+}
