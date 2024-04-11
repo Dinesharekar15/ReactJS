@@ -3,9 +3,11 @@ function InputBox({
     label,
     amount,
     onamountchange,
-    oncurrencychange,
+    oncurrencytypechange,
     selectcurrency="usd",
     currencyoptions=[],
+    amountDisable = false,
+    currencyDisable = false,
     className = "",
 }) {
 
@@ -24,7 +26,8 @@ function InputBox({
                     type="number"
                     placeholder="Amount"
                     value={amount}
-                    onChange={(e)=>onamountchange && onamountchange(Number(e.target.value))}
+                    disabled={amountDisable}
+                    onChange={(e) => onamountchange(e.target.value)}
                     
                 />
             </div>
@@ -33,9 +36,8 @@ function InputBox({
                 <select
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                     value={selectcurrency}
-                    onChange={(e)=>
-                        oncurrencychange && oncurrencychange(e.target.value)
-                    }
+                    onChange={(e) => oncurrencytypechange(e.target.value)}
+                    disabled={currencyDisable}
                 >
                    
                     {currencyoptions.map((currency) => (

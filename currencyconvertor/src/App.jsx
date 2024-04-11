@@ -1,23 +1,26 @@
 import { useState } from 'react'
 import {InputBox} from './Components'
-import useCurrencyinfo from './hooks/useCurrencyinfo'
+import Currencyinfo from './hooks/useCurrencyinfo'
 
 function App() {
   const [Amount ,setAmount]=useState(0)
   const [From,setFrom]=useState("usd")
   const [To,setTo]=useState("inr")
-  const [Convertamounted,setConvertamounted]=useState(0)
-
-  const options =Object.keys(useCurrencyinfo)
+  const [Convertamount,setConvertamount]=useState(0)
+  
+  const currencyinfo = Currencyinfo(From)
+   
+  const options  = Object.keys(Currencyinfo)
 
   function swap (){
      setFrom(To)
      setTo(From)
-     setAmount(Convertamounted)
-     setConvertamounted(Amount)
+     setAmount(Convertamount)
+     setConvertamount(Amount)
   }
   const convert= ()=>{
-        setConvertamounted(Amount*useCurrencyinfo[To])
+        
+        setConvertamount(Amount * currencyinfo[To])
   }
 
   return (
@@ -41,7 +44,7 @@ function App() {
                         label="FROM"
                         amount={Amount}
                         currencyoptions={options}
-                        oncurrencychange={(amount)=>setAmount(amount)}
+                        oncurrencytypechange={(amount)=>setAmount(amount)}
                         
                         selectcurrency={From}
                         onamountchange={(amount)=>setAmount(amount)}
@@ -60,14 +63,14 @@ function App() {
                 <div className="w-full mt-1 mb-4">
                     <InputBox
                       label="TO"
-                      amount={Convertamounted}
-                      oncurrencychange={(amount)=>setTo(amount)}
-                      onamountchange={(amount)=>setConvertamounted(amount)}
+                      amount={Convertamount}
+                      oncurrencytypechange={(amount)=>setTo(amount)}
+                      onamountchange={(amount)=>setConvertamount(amount)}
                       selectcurrency={To}
                       currencyoptions={options}
                     />
                 </div>
-                <button onClick={convert} type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                <button  type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
                     Convert {From.toUpperCase()} to {To.toUpperCase()}
                    
                 </button>
