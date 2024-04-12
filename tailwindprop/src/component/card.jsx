@@ -2,28 +2,26 @@ import React from "react";
 
 function Card({username, job="software developer",image}) {
     return (
-        <div className="bg=green-400 text-3xl font-bold">
-            <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
-                <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src={image} alt="" width="384" height="512" />
-                <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-                    <blockquote>
-                        <p class="text-lg font-medium">
-                            “Tailwind CSS is the only framework that I've seen scale
-                            on large teams. It’s easy to customize, adapts to any design,
-                            and the build size is tiny.”
-                        </p>
-                    </blockquote>
-                    <figcaption class="font-medium">
-                        <div class="text-sky-500 dark:text-sky-400 bg">
-                            {username}
-                        </div>
-                        <div class="text-slate-700 dark:text-slate-500">
-                            {job}, India
-                        </div>
-                    </figcaption>
+        <header className="bg-gray-800 text-white p-4">
+            <nav className="container mx-auto flex justify-between items-center">
+                {/* Navigation Links */}
+                <div className="flex space-x-4">
+                    <a href="#home" className="hover:text-gray-400">Home</a>
+                    <a href="#about" className="hover:text-gray-400">About</a>
+                    <a href="#contact" className="hover:text-gray-400">Contact Us</a>
+                    <a href="#github" className="hover:text-gray-400">GitHub</a>
                 </div>
-            </figure>
-        </div>
+                {/* Buttons */}
+                <div className="flex space-x-4">
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        Login
+                    </button>
+                    <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+                        Get Started
+                    </button>
+                </div>
+            </nav>
+        </header>
     );
 }
 
