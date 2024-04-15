@@ -1,5 +1,5 @@
 {
     "terminal.integrated.altClickMovesCursor": true,
     "editor.cursorSmoothCaretAnimation": "on",
-    "github.copilot.editor.enableAutoCompletions": false
+    "github.copilot.editor.enableAutoCompletions": true
 }
