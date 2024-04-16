@@ -4,7 +4,13 @@ import { useCard } from '../context/Cardcontext';
 
 
 const Addedcard = () => {
-    const card=useCard();
+    const card = useCard();
+
+
+
+
+
+    
     const total=card.item.reduce((a,b)=>a+b.price,0)
   return (
     <div>
