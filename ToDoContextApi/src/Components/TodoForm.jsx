@@ -7,10 +7,10 @@ function TodoForm() {
 
     function add(e){
         e.preventDefault()
-        console.log(todo)
-        if (!todo) return
+        if (!todo) return alert("add task")
 
         addtodo({todo ,completed:false})
+        
         settodo("")
     }
 

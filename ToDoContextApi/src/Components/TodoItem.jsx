@@ -4,16 +4,19 @@ import { useTodo } from '../Context/Todocontext';
 function TodoItem({ todo }) {
     const [isTodoEditable,setIsTodoEditable]=useState(false)
     const [todoMsg,setTodoMsg]=useState(todo.todo)
+    
     const {edittodo,remove,toggelcomplete}=useTodo()
     
     const edittodos=()=>{
         edittodo(todo.id,{...todo,todo:todoMsg})
         setIsTodoEditable(false)
-        console.log(todoMsg)
+
+        console.log(todo)
         
     }
     const toggelcompleted=()=>{
         toggelcomplete(todo.id)
+        // console.log(todo.id)
     }
     
     

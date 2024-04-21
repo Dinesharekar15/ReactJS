@@ -8,7 +8,9 @@ function App() {
   const [todos, settodos] = useState([])
 
   const addtodo =(todo)=>{
-      settodos((prev)=>[{id:Date.now(),todo},...prev])
+    console.log(todo)
+      
+      settodos((prev)=>[{id:Date.now(),...todo},...prev])
   }
 
   const edittodo=(id,todo)=>{
@@ -24,21 +26,12 @@ function App() {
   }
 
   useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
-    
-    if (storedTodos) {
-        try {
-            const parsedTodos = JSON.parse(storedTodos);
-            if (Array.isArray(parsedTodos)) {
-                settodos(parsedTodos);
-            } else {
-                console.error("Stored todos is not an array:", parsedTodos);
-            }
-        } catch (error) {
-            console.error("Error parsing stored todos:", error);
-        }
+    const todos = JSON.parse(localStorage.getItem("todos"))
+
+    if (todos && todos.length > 0) {
+      settodos(todos)
     }
-}, []);
+  }, [])
 
 
   useEffect(()=>{
