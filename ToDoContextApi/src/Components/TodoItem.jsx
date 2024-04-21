@@ -9,6 +9,7 @@ function TodoItem({ todo }) {
     const edittodos=()=>{
         edittodo(todo.id,{...todo,todo:todoMsg})
         setIsTodoEditable(false)
+        console.log(todoMsg)
         
     }
     const toggelcompleted=()=>{
