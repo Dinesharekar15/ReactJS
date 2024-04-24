@@ -24,6 +24,9 @@ function App() {
   const toggelcomplete=(id)=>{
     settodos((prev)=>prev.map((task)=>task.id===id?{...task,completed :!task.completed}:task))
   }
+  const deleteall=()=>{
+    settodos([])
+  }
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
@@ -39,8 +42,8 @@ function App() {
   },[todos])
 
   return (
-    <Todoprovider value={{todos,addtodo,edittodo,remove,toggelcomplete}}>
-     <div className="bg-[#172842] min-h-screen py-8">
+    <Todoprovider value={{todos,addtodo,edittodo,remove,toggelcomplete,deleteall}}>
+     <div className="bg-[#172842] min-h-screen py-8 w-full ">
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
                     <div className="mb-4">

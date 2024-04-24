@@ -13,6 +13,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  
+  "homepage": "http://Dinesharekar15.github.io/ToDo-React",
+
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

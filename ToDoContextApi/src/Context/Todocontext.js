@@ -13,7 +13,8 @@ export const Todocontext=createContext({
     addtodo:(todo)=>{},
     edittodo:(id,todo)=>{},
     remove:(id)=>{},
-    toggelcomplete:(id)=>{}
+    toggelcomplete:(id)=>{},
+    deleteall:()=>{}
 
 })
 
