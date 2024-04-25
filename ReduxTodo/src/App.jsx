@@ -12,7 +12,7 @@ function App() {
     <>
       <h1>Learn ReaduxToolkit</h1>
       <Addtodo/>
-      {/* <TodoItem/> */}
+      <TodoItem/>
     </>
   )
 }

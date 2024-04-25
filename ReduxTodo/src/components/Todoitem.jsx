@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { removtodo } from "../slice";
+import { removetodo,deletall } from "../slice";
+
 
 
 
@@ -15,13 +16,21 @@ function TodoItem() {
     return (
         <>
         <ul>
+            
+        <div className="flex justify-between">
+
+           <button className="mt-3 rounded-lg px-3 py-1 bg-blue-700 text-white shrink-0" >Filter</button>
+
+          <button className="mt-3 rounded-lg px-3 py-1 bg-red-400 text-white shrink-0" onClick={()=>dispatch(deletall())} >Delete All</button>
+          
+        </div>
             {
                 todos.map((todo)=>(
                 
                 <li className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded" key={todo.id}>
                 <div className="text-white" >{todo.text}</div>
                 <button
-                onClick={()=>dispatch(removtodo(todo.id))}
+                onClick={()=>dispatch(removetodo(todo.id))}
                 className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
                 >
                 <svg
@@ -39,6 +48,7 @@ function TodoItem() {
                 />
               </svg>
                 </button>
+                
             </li>
 
             ))}
