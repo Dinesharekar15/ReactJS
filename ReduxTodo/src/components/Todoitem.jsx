@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { removetodo,deletall } from "../slice";
+import { removetodo,deletall,toggeltodo } from "../slice";
 
 
 
@@ -11,6 +11,9 @@ function TodoItem() {
 
     if (!todos) {
         return <div>Loading todos...</div>;
+    }
+    function toggelcomplete(){
+      dispatch(toggeltodo(todos.id))
     }
 
     return (
@@ -27,8 +30,12 @@ function TodoItem() {
             {
                 todos.map((todo)=>(
                 
-                <li className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded" key={todo.id}>
-                <div className="text-white" >{todo.text}</div>
+                <li className="mt-4 flex justify-between items-center bg-gray-300 px-4 py-2 rounded" key={todo.id}>
+                    <div className="flex items-center justify-center">
+                        <input onChange={toggelcomplete} className="w-3 h-3 text-center" type="checkbox" />
+                        <h3 className="ml-4 text-black">{todo.text}</h3>
+                    </div>
+                   
                 <button
                 onClick={()=>dispatch(removetodo(todo.id))}
                 className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"

@@ -13,7 +13,8 @@ const todoslice=createSlice({
             console.log(state.todos)
             const todo = {
                 id: nanoid(), 
-                text: action.payload
+                text: action.payload,
+                completed:false
             }
             state.todos.push(todo)
         },
@@ -23,6 +24,9 @@ const todoslice=createSlice({
         removetodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload )
         },
+        toggletodo:(state)=>{
+            state.todos.map((todo)=>todo.id===id?{...todo,completed:!todo.completed}:todo)
+        }
     }
     
 
